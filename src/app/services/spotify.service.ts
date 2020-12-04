@@ -17,4 +17,12 @@ export class SpotifyService {
     return this.http.get("https://api.spotify.com/v1/browse/new-releases", { headers });
   }
 
+  getArtist(term: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer BQCJb_thA1vpDRGzuEFb80dRac0q-FpKKbU73FELuHwpAioZVFNPtRhGf_oZ2xkRBlFw1j_TVDuISfFVDDgTYuBrQ9VETYSLCqHYhNPDL2jufjMqXn28ROBPUraFrXhFR4HSrHH45ghs4p5qYpO1d9cGaW3K-AKIpZo'
+    });
+
+    return this.http.get(`https://api.spotify.com/v1/search?q=${term}&limit=15&type=artist`, { headers });
+  }
+
 }
