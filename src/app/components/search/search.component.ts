@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
 
   search(term: string) {
     this.loading = true;
-    this.spotify.getArtist(term)
+    this.spotify.getArtists(term)
       .subscribe(data => {
         console.log(data);
         this.artists = data;
