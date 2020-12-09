@@ -31,7 +31,7 @@ export class SpotifyService {
 
   getArtists(term: string): Observable<any> {
     return this.getQuery(`search?q=${term}&limit=15&type=artist`)
-      .pipe(map(data => data['artists']['items']));
+      .pipe(map(data => {console.log(data); return data['artists']['items']}));
   }
 
   getArtist(id: string): Observable<any> {
@@ -56,6 +56,10 @@ export class SpotifyService {
         this.token = res['access_token'];
         return this.token;
       }));
+  }
+
+  useCredentials() {
+    this.token = localStorage.getItem('token');
   }
 
 }

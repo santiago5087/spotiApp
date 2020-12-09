@@ -11,19 +11,23 @@ export class SearchComponent implements OnInit {
   artists: any[] = [];
   loading: boolean;
 
-  constructor(private spotify: SpotifyService) { }
+  constructor(private spotify: SpotifyService) {
+    this.spotify.useCredentials();
+  }
 
   ngOnInit(): void {
   }
 
   search(term: string) {
-    this.loading = true;
-    this.spotify.getArtists(term)
-      .subscribe(data => {
-        console.log(data);
-        this.artists = data;
-        this.loading = false;
-      });
+    if(term.length>0) {
+      this.loading = true;
+      this.spotify.getArtists(term)
+        .subscribe(data => {
+          console.log(data);
+          this.artists = data;
+          this.loading = false;
+        });
+    }
   }
 
 }

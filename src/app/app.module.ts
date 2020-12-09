@@ -12,6 +12,7 @@ import { NoImagePipe } from './pipes/no-image.pipe';
 import { CardComponent } from './components/card/card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { DomSafePipe } from './pipes/dom-safe.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DomSafePipe } from './pipes/dom-safe.pipe';
     NoImagePipe,
     CardComponent,
     LoadingComponent,
-    DomSafePipe
+    DomSafePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
