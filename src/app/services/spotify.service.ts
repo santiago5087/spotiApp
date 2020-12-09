@@ -43,6 +43,11 @@ export class SpotifyService {
       .pipe(map(data => data['tracks']));
   }
 
+  getAlbums(id: string): Observable<any> {
+    return this.getQuery(`artists/${id}/albums`)
+      .pipe(map(data => data['items']));
+  }
+
   getTokenAuth(): Observable<any> {
     const body = new HttpParams()
       .set('grant_type', 'client_credentials')

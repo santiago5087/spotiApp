@@ -13,6 +13,7 @@ import { CardComponent } from './components/card/card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { DomSafePipe } from './pipes/dom-safe.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { SongsComponent } from './components/songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CardComponent,
     LoadingComponent,
     DomSafePipe,
-    FooterComponent
+    FooterComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,

@@ -4,11 +4,13 @@ import { ArtistComponent } from './components/artist/artist.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { SongsComponent } from './components/songs/songs.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'artist/:id', component: ArtistComponent },
+  { path: 'albums/:id', component: SongsComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

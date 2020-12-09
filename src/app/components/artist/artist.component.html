@@ -7,11 +7,15 @@
 
   <div class="col">
     <h3>{{ artist.name }}</h3>
-    <p>
-      <a [href]="artist.external_urls.spotify" target="_blank">
-        Go to artist page
-      </a>
+    <p><b>Followers: </b>{{ artist.followers['total'] | number }}</p>
+    <p><b> Genres: </b>
+      <span *ngFor="let genre of artist.genres" class="badge badge-pill badge-success">
+        {{ genre }}
+      </span>
     </p>
+    <p><a [href]="artist.external_urls.spotify" target="_blank">
+        Go to artist page
+    </a></p>
   </div>
 
   <div class="col-4 text-right">
@@ -21,31 +25,21 @@
   </div>
 </div>
 
-<div class="row mt-5">
+<div class="row m-5">
   <div class="col">
-    <table class="table" style="color: white;">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Album</th>
-          <th>Song</th>
-          <th>Preview</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let track of topTracks">
-          <td><img [src]="track.album.images | noImage" class="img-thumb"></td>
-          <td>{{ track.album.name }}</td>
-          <td>{{ track.name }}</td>
-          <td>
-            <iframe [src]="track.id | domSafe" 
-                    width="300" height="80" frameborder="0" allowtransparency="true" 
-                    allow="encrypted-media">
-            </iframe>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h3 class="mb-3">Albums</h3>
+    <div class="card-columns mt-5 animated fadeIn">
+      <div *ngFor="let album of albums" class="card">
+        <img [src]="album.images | noImage" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ album.name }}</h5>
+          <p class="card-text"> <b>Album type: </b> {{ album.album_type }}</p>
+          <p class="card-text"> <b>Release date: </b> {{ album.release_date }}</p>
+          <button [routerLink]="['/albums', album.id]" class="btn btn-outline-success btn-block">
+            Album Tracks
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
