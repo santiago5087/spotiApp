@@ -29,13 +29,15 @@
   <div class="col">
     <h3 class="mb-3">Albums</h3>
     <div class="card-columns mt-5 animated fadeIn">
-      <div *ngFor="let album of albums" class="card">
+      <div *ngFor="let album of albums; let i = index" class="card">
         <img [src]="album.images | noImage" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ album.name }}</h5>
           <p class="card-text"> <b>Album type: </b> {{ album.album_type }}</p>
           <p class="card-text"> <b>Release date: </b> {{ album.release_date }}</p>
-          <button [routerLink]="['/albums', album.id]" class="btn btn-outline-success btn-block">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-success btn-block"
+                  (click)="openTracks(album.id)">
             Album Tracks
           </button>
         </div>

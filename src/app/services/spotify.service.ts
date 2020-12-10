@@ -38,9 +38,9 @@ export class SpotifyService {
     return this.getQuery(`artists/${id}`);
   } 
 
-  getTopTracks(id: string): Observable<any> {
-    return this.getQuery(`artists/${id}/top-tracks?country=US`)
-      .pipe(map(data => data['tracks']));
+  getTracks(id: string): Observable<any> {
+    return this.getQuery(`albums/${id}/tracks`)
+      .pipe(map(data => data['items']));
   }
 
   getAlbums(id: string): Observable<any> {

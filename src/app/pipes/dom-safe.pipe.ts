@@ -9,7 +9,7 @@ export class DomSafePipe implements PipeTransform {
   constructor(private domSanitizer: DomSanitizer) {}
 
   transform(value: string): SafeResourceUrl {
-    const url = 'https://open.spotify.com/embed/track/';
+    const url = 'https://open.spotify.com/embed/album/';
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url + value);
   }
 

@@ -1,0 +1,10 @@
+<mat-dialog-content>
+  <iframe [src]="album | domSafe" width="300" height="380" frameborder="0" 
+          allowtransparency="true" allow="encrypted-media">
+  </iframe>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button (click)="onNoClick()" tabindex="-1" class="btn btn-sm btn-outline-danger btn-block">
+    Close
+  </button>
+</mat-dialog-actions>
