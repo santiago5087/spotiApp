@@ -1,5 +1,11 @@
 # SpotiApp
 
+You can access to the app at: https://my-spoti-app.netlify.app/
+
+This app consumes the following API:
+- https://developer.spotify.com/documentation/web-api/
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
 ## Development server
